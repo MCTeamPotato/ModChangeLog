@@ -1,0 +1,17 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "modchangelog"
+version = "${version}"
+displayName = "ModChangeLog"
+authors = "Kall"
+description = '''
+A Minecraft mod
+'''
+#logoFile = ""
+
+[[mixins]]
+config = "modchangelog.mixins.json"

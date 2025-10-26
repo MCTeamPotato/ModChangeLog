@@ -1,0 +1,10 @@
+{
+  "required": false,
+  "package": "me.kall.modchangelog.mixin",
+  "plugin": "me.kall.modchangelog.mixin.MixinConfigPlugin",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
