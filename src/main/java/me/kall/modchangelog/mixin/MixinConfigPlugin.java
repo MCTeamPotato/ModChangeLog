@@ -1,7 +1,6 @@
 package me.kall.modchangelog.mixin;
 
-import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.fml.loading.FMLPaths;
+import net.fabricmc.loader.api.FabricLoader;
 import org.apache.logging.log4j.LogManager;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -26,7 +25,7 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
 
     static {
         try {
-            Path dir = FMLPaths.GAMEDIR.get().resolve("modchangelog");
+            Path dir = FabricLoader.getInstance().getGameDir().resolve("modchangelog");
             Files.createDirectories(dir);
 
             String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
@@ -41,8 +40,8 @@ public class MixinConfigPlugin implements IMixinConfigPlugin {
     }
 
     private static List<String> getCurrentMods() {
-        return FMLLoader.getLoadingModList().getMods().stream()
-                .map(info -> info.getModId() + "=" + info.getVersion().toString())
+        return FabricLoader.getInstance().getAllMods().stream()
+                .map(modContainer -> modContainer.getMetadata().getId() + "=" + modContainer.getMetadata().getVersion().getFriendlyString())
                 .sorted()
                 .collect(Collectors.toList());
     }

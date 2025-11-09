@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "modchangelog",
+	"version": "${version}",
+	"name": "ModChangeLog",
+	"description": "A mod for tracking changes to the mod list",
+	"authors": [
+		"Kall"
+	],
+	"contact": {
+		"sources": "https://github.com/MCTeamPotato/ModChangeLog"
+	},
+	"license": "MIT",
+	"icon": "assets/modchangelog/icon.png",
+	"environment": "*",
+	"mixins": [
+		"modchangelog.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": "*",
+		"java": ">=8"
+	}
+}
